@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+:root {
+  --bg: #0a0714;
+  --bg-soft: #120c1f;
+  --panel: rgba(18, 12, 31, 0.72);
+  --purple-strong: #b48eea;
+  --purple-glow: #cbaef2;
+  --purple-mid: #8a63c4;
+  --purple-line: #5b3f8a;
+  --cream: #efe7f7;
+  --cream-dim: rgba(239, 231, 247, 0.62);
+  --cream-faint: rgba(239, 231, 247, 0.4);
+  --max-width: 780px;
+  --nav-height: 92px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ---------- Background layers (art + stars) ---------- */
+
+.bg-art {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3;
+  opacity: 0.9;
+}
+
+.bg-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+body.inner .bg-art { opacity: 0.28; filter: blur(0.3px); }
+
+.bg-veil {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: radial-gradient(ellipse at 50% 0%, rgba(10,7,20,0) 0%, rgba(10,7,20,0.55) 55%, rgba(10,7,20,0.92) 100%);
+  pointer-events: none;
+}
+
+body.inner .bg-veil {
+  background: linear-gradient(180deg, rgba(10,7,20,0.75) 0%, rgba(10,7,20,0.94) 20%, rgba(10,7,20,0.97) 100%);
+}
+
+#stars {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.star-dot {
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+}
+
+/* ---------- Nav ---------- */
+
+.site-nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 2.75rem;
+  padding: 1.75rem 1.5rem;
+}
+
+body.inner .site-nav {
+  justify-content: space-between;
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 1.75rem 1.5rem 1rem;
+}
+
+.brand-mini {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--purple-glow);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 18px rgba(180, 142, 234, 0.5);
+}
+
+.nav-links { display: flex; gap: 1.9rem; flex-wrap: wrap; justify-content: flex-end; }
+
+.site-nav a {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible { color: var(--purple-glow); }
+
+.site-nav a.active { text-decoration: underline; text-decoration-color: var(--cream-dim); text-underline-offset: 5px; }
+
+.site-nav a:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--purple-strong);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Hero (home) ---------- */
+
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem 6rem;
+  position: relative;
+}
+
+.constellation {
+  width: 260px;
+  max-width: 60vw;
+  margin-bottom: 0.5rem;
+  opacity: 0.85;
+}
+
+.wordmark {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 8vw, 5.2rem);
+  letter-spacing: 0.03em;
+  margin: 0.4rem 0 1.4rem;
+  color: var(--purple-strong);
+  text-shadow: 0 0 28px rgba(180, 142, 234, 0.45), 0 0 70px rgba(138, 99, 196, 0.25);
+  display: inline-block;
+}
+
+.hero-nav {
+  display: flex;
+  gap: 2.5rem;
+  font-size: 1.2rem;
+}
+
+.hero-nav a {
+  color: var(--cream);
+  text-decoration: underline;
+  text-decoration-color: var(--cream-dim);
+  text-underline-offset: 6px;
+  padding-bottom: 4px;
+  display: inline-block;
+}
+
+.hero-nav a:hover,
+.hero-nav a:focus-visible {
+  color: var(--purple-glow);
+  text-decoration-color: var(--purple-glow);
+}
+
+.hero-tag {
+  margin-top: 2.5rem;
+  color: var(--cream-faint);
+  font-style: italic;
+  font-size: 1rem;
+}
+
+/* ---------- Homepage utility nav (Privacy / About / Contact) ---------- */
+
+.utility-nav {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.75rem;
+  z-index: 10;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.utility-nav a {
+  color:var(--purple-strong);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+}
+
+.utility-nav a:hover,
+.utility-nav a:focus-visible { color: var(--purple-glow); }
+
+/* ---------- Decorative flourishes (static) ---------- */
+
+.shooting-star {
+  position: fixed;
+  top: 18%;
+  left: 62%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px 2px rgba(255,255,255,0.8);
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.shooting-star::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 90px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8));
+  transform: translateY(-50%);
+}
+
+.doodle-ufo {
+  position: fixed;
+  top: 22%;
+  left: 8%;
+  width: 46px;
+  height: auto;
+  z-index: -1;
+  opacity: 0.75;
+}
+
+/* ---------- Content pages ---------- */
+
+.page-wrap {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 6rem;
+}
+
+.eyebrow {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  color: var(--purple-mid);
+  letter-spacing: 0.06em;
+  margin: 0 0 0.3rem;
+}
+
+.page-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: clamp(2.1rem, 6vw, 3rem);
+  color: var(--purple-strong);
+  margin: 0 0 1.2rem;
+  text-shadow: 0 0 24px rgba(180, 142, 234, 0.3);
+}
+
+.page-intro {
+  color: var(--cream-dim);
+  font-size: 1.15rem;
+  max-width: 60ch;
+  margin-bottom: 3rem;
+}
+
+/* ---------- Blog list ---------- */
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(138, 99, 196, 0.3);
+}
+
+.post-card {
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(138, 99, 196, 0.3);
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-date {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--purple-mid);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.post-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin: 0 0 0.6rem;
+}
+
+.post-card:hover .post-title,
+.post-card:focus-visible .post-title { color: var(--purple-glow); }
+
+.post-dek {
+  color: var(--cream-dim);
+  margin: 0 0 0.7rem;
+  font-size: 1.05rem;
+}
+
+.read-more {
+  color: var(--purple-mid);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+/* ---------- Single post ---------- */
+
+.post-body p { margin: 0 0 1.3rem; color: var(--cream); }
+.post-body p:first-of-type::first-letter {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 3rem;
+  float: left;
+  line-height: 0.8;
+  padding: 0.1rem 0.5rem 0 0;
+  color: var(--purple-strong);
+}
+
+.post-meta { margin-bottom: 2.5rem; }
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: var(--purple-mid);
+  text-decoration: none;
+  font-style: italic;
+}
+.back-link:hover, .back-link:focus-visible { color: var(--purple-glow); }
+
+.post-nav {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(138, 99, 196, 0.3);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.post-nav a { color: var(--cream-dim); text-decoration: none; font-size: 0.95rem; }
+.post-nav a:hover, .post-nav a:focus-visible { color: var(--purple-glow); }
+
+/* ---------- About / Contact / Privacy — purple theme ---------- */
+
+.about-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-sigil {
+  align-self: center;
+  width: 96px;
+  height: 96px;
+  opacity: 0.9;
+}
+
+body.page-purple .about-body p,
+body.page-purple .contact-note,
+body.page-purple .policy-section p,
+body.page-purple .page-intro {
+  color: var(--purple-glow);
+}
+
+.about-facts {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  gap: 0.9rem;
+  border-top: 1px solid rgba(138, 99, 196, 0.3);
+  padding-top: 1.8rem;
+}
+
+.about-facts li {
+  display: flex;
+  gap: 1rem;
+  font-size: 1.05rem;
+}
+
+.about-facts .fact-label {
+  color: var(--purple-mid);
+  font-style: italic;
+  min-width: 7rem;
+  flex-shrink: 0;
+}
+
+body.page-purple .about-facts li span:not(.fact-label) {
+  color: var(--purple-glow);
+}
+
+.contact-link {
+  color: var(--purple-strong);
+  text-decoration: underline;
+  text-decoration-color: var(--purple-line);
+  text-underline-offset: 4px;
+}
+.contact-link:hover, .contact-link:focus-visible { color: var(--purple-glow); }
+
+/* ---------- Contact page ---------- */
+
+.contact-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 1.5rem 0 2rem;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--purple-line);
+  border-radius: 999px;
+  color: var(--purple-strong);
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.contact-cta:hover,
+.contact-cta:focus-visible {
+  border-color: var(--purple-glow);
+  color: var(--purple-glow);
+}
+
+.contact-note {
+  color: var(--cream-faint);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* ---------- Privacy page ---------- */
+
+.policy-section { margin-bottom: 2.2rem; }
+.policy-section h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.15rem;
+  color: var(--purple-mid);
+  margin: 0 0 0.7rem;
+  letter-spacing: 0.02em;
+}
+.policy-section p { color: var(--cream); margin: 0 0 0.8rem; }
+.policy-updated { color: var(--cream-faint); font-style: italic; font-size: 0.95rem; margin-bottom: 2.5rem; }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  color: var(--cream-faint);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-style: normal;
+}
+
+.footer-nav a {
+  color: var(--cream-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.footer-nav a:hover,
+.footer-nav a:focus-visible { color: var(--purple-glow); }
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 560px) {
+  .site-nav { gap: 1.5rem; }
+  body.inner .site-nav { flex-direction: column; align-items: center; gap: 0.75rem; }
+  .nav-links { justify-content: center; gap: 1.2rem 1.6rem; }
+  .hero-nav { gap: 1.5rem; font-size: 1.05rem; }
+  .about-facts li { flex-direction: column; gap: 0.15rem; }
+  .utility-nav { position: static; justify-content: center; margin-top: 1rem; }
+  .doodle-ufo { display: none; }
+  .footer-nav { flex-wrap: wrap; gap: 1rem 1.5rem; }
+}
