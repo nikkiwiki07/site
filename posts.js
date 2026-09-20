@@ -7,23 +7,40 @@
      - slug: lowercase, hyphens only, must be unique (used in the URL)
      - date: YYYY-MM-DD, used for sorting (newest first)
      - body: an array of strings, one per paragraph
+       IMPORTANT: every paragraph must end with a comma, like this:
+         body: [
+           "First paragraph.",
+           "Second paragraph.",
+         ],
   4. Save the file. blog.html and post.html update automatically —
      no other files need to change.
 */
 
 window.POSTS = [
   {
-    slug: "tabbys-star",
-    title: "Tabby's Star",
-    date: "2026-08-12",
-    dateDisplay: "August 12, 2026",
+    slug: "fermi-paradox",
+    title: "Fermi Paradox",
+    date: "2026-09-20",
+    dateDisplay: "September 20, 2026",
     readTime: "4 min read",
-    dek: "A star that dims in ways no ordinary star should. Nobody has fully explained it. That's the whole appeal.",
+    dek: "Are we really alone in the Universe?",
     body: [
-      "Most stars are boring in the best way. They burn at a steady rate, dim by a fraction of a percent when something crosses in front of them, and behave exactly as the math predicts. Then there's KIC 8462852 — Tabby's Star, named after the astronomer who first flagged it — which occasionally drops in brightness by up to twenty percent, on no fixed schedule, for reasons that still aren't fully settled.",
-      "A planet passing in front of a star dims it by a predictable, tiny, regular amount. Tabby's Star doesn't do tiny, and it doesn't do regular. The dips are deep and irregular, which is exactly the kind of behavior that gets a star nicknamed the 'alien megastructure star' in every headline written about it since 2015.",
-      "The megastructure idea was always the least likely explanation, and most researchers now favor something quieter: an uneven cloud of dust, or the leftover debris of a shredded comet, drifting across our line of sight in clumps instead of one clean disk. It's a less thrilling answer, but it's the one the evidence keeps pointing toward.",
-      "What I like about this star isn't the mystery so much as what it reveals about how we look for answers. We built an entire vocabulary — dips, ingress, egress, forward-scattering — just to describe one star's inconsistency. Then we argued about it for the better part of a decade. That's not indecision. That's just what it looks like to take a strange thing seriously instead of explaining it away too quickly.",
+      "When you look up at the night sky and look at its being, it makes you feel very small, insignificant, your problems seem lost in a busy Universe. You are just one person out of the gazillions of beings scattered all over all the galaxies, right? Maybe not, maybe you're just one of the billions on Earth. That can't be right, the Universe is infinite, there has to be other living entities out there. But if that's the case, where are they?",
+      "My dear reader, I present to you the Fermi Paradox.",
+      "What Exactly Is the Fermi Paradox?",
+      "The Fermi Paradox is the apparent contradiction between the high statistical likelihood that intelligent civilizations exist elsewhere in the universe and the complete lack of evidence for them.",
+      "It all began with a casual conversation that happened in 1950 at the Los Alamos National Laboratory in New Mexico. Enrico Fermi and his colleagues — Edward Teller, Emil Konopinski, and Herbert York — were talking about a cartoon that had run in the newspaper, which led Fermi to arrive at a question: \u201CWhere is everybody?\u201D",
+      "There are a lot of theories that try to explain this, many of which can be broken down into broad categories.",
+      "Are we really alone?",
+      "Theories that fall into this category agree that we really are all alone in the Universe. We are the only civilisation that was lucky (or unlucky) enough to experience what we call life. There comes the Rare Earth Hypothesis. Earth is so incredibly unique, so perfect that against all odds, we made it. We all know that we came about due to incredibly specific combinations of everything. We are special, we are the exception.",
+      "They just can't.",
+      "Maybe they exist and want to meet us but they are just unable to. The most popular is the Great Filter Hypothesis, in simple terms, it suggests that there is a great impenetrable barrier that stops life from evolving into space travellers. Now let's get back to Earth. What was the greatest discovery of the Paleolithic Period? A very angry little fellow, called Fire. It might seem a little silly to say that aliens don't exist because of fire, but it's not. The Rare Fire theory suggests that fire has enabled a lot of technological advancements for humanity due to the specific requirement of oxygen — maybe other planets with different levels of oxygen haven't discovered fire yet, leaving them without the innovations fire makes possible.",
+      "Our planet has fire. Makes me think what the other planets have — what is their fire?",
+      "Do they just not want to meet us?",
+      "There are theories that suggest we aren't the only civilisation, and that extraterrestrial entities exist and just stay away from us for some reason. We could look at this from two perspectives. First the Zoo Hypothesis, which suggests that we are looked at like zoo animals by all the other aliens in the Universe — they are observing us and do not interact, in order to let us learn things on our own. Doesn't seem so bad. So basically aliens are just a bit nonchalant.",
+      "OR we could look at it from another, much less amicable perspective. If we try to understand alien life by looking inward at life on Earth: what reason could there possibly be for why we haven't been reached out to? Maybe the same reason a deer doesn't say hello to a lion. This is the Dark Forest Hypothesis, which looks at the cosmos like a dark forest where predators hunt victims — the difference being that instead of trees we'll have stars. I don't blame aliens. We've all seen the state of the world. We live in a world where man hunts man; aliens shouldn't trust us at all.",
+      "So...",
+      "What is real? Are we alone? Do aliens exist? I don't know, nobody does. It's a scary thought, thinking that we are alone out here on this floating rock so full of life. Maybe there isn't someone out there on another floating rock to hear our screams when our world comes to an end. Are we the only people wondering if there is something else out there? Or is another entity, equivalent to a weird teenage girl, wondering about us? There can come many theories, but without a hello from the other side, we will never know. And I think that's beautiful. Because if you don't know, it can't hurt.",
     ],
   },
   {
