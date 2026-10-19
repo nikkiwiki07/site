@@ -24,20 +24,23 @@
 
   document.title = post.title + " — Dew's Theory";
 
+  // Lines starting with "## " become subheadings; everything else is a paragraph.
   var bodyHtml = post.body.map(function (para) {
-    var p = document.createElement('p');
-    p.textContent = para;
-    return p.outerHTML;
+    var isSubhead = para.indexOf('## ') === 0;
+    var el = document.createElement(isSubhead ? 'h2' : 'p');
+    if (isSubhead) el.className = 'post-subhead';
+    el.textContent = isSubhead ? para.slice(3) : para;
+    return el.outerHTML;
   }).join('');
 
   var prev = sorted[index + 1]; // older
   var next = sorted[index - 1]; // newer
 
   var navHtml = '<a href="blog.html">← Back to all entries</a>';
-  if (next) navHtml = '<a href="post.html?slug=' + encodeURIComponent(next.slug) + '">← ' + next.title + '</a>';
+  if (next) navHtml = '<a href="post.html?slug=' + encodeURIComponent(next.slug) + '">← ' + escapeHtml(next.title) + '</a>';
 
   var navHtmlRight = '';
-  if (prev) navHtmlRight = '<a href="post.html?slug=' + encodeURIComponent(prev.slug) + '">' + prev.title + ' →</a>';
+  if (prev) navHtmlRight = '<a href="post.html?slug=' + encodeURIComponent(prev.slug) + '">' + escapeHtml(prev.title) + ' →</a>';
   else navHtmlRight = '<a href="blog.html">All entries →</a>';
 
   root.innerHTML =
